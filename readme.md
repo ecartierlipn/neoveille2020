@@ -153,4 +153,4 @@ For example :
 python corpus_crawl_and_analysis.py config/settings.local.fr.treetagger.ini
 ```
 
-The program will load the configuration file and check if configuration components are available. then it will analyze the documents 
+The program will load the configuration file and check if configuration components are available. then it will analyze (ling_pipeline parameter) the documents (data_source parameter) and save the results according to the analysis_output parameter.
