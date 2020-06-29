@@ -1,0 +1,14 @@
+jusText==2.2.0
+feedparser==5.2.1
+treetaggerwrapper==2.3
+editdistance==0.5.3
+requests==2.23.0
+chardet==3.0.4
+Unidecode==1.1.1
+pysolr==3.9.0
+Flask==1.1.1
+transformers==2.11.0
+langdetect==1.0.8
+beautifulsoup4==4.9.1
+mysql_connector_repackaged==0.3.1
+spacy==2.3.0
