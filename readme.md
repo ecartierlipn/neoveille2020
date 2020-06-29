@@ -115,18 +115,27 @@ excluded_dico_server=http://127.0.0.1:5056
 ```
 
 The [GENERAL] section contains the main parameters of the program:
-# the language of the corpora
+- the language of the corpora
+```
 lang = french
 lang_iso=fr
+```
 
-# The data source (either solr_query, mysql_query, local_files, webpage, csv, etc.)
+- the data source (either solr_query, mysql_query, local_files, webpage, csv, etc.)
+```
 data_source=solr_query
-# the linguistic pipeline
-# either spacy, hunspell, spacy+exclusiondico, treetagger, treetagger+exclusiondico, udpipe, udpipe+exclusiondico
-ling_pipeline = treetagger+pattern+exclusiondico+hunspell
+```
 
-# The outputs (solr, db, solr+db)
-#solr+db+file
+- the linguistic pipeline : either spacy, hunspell, treetagger, exclusiondico, or a combination of them
+```
+ling_pipeline = treetagger+pattern+exclusiondico+hunspell
+```
+
+- the output of analysis (either solr, db, file or a combination of them)
+```
+output=solr+db+file
+```
+
 
 The other sections correspond to sub-components.
 
