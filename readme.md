@@ -1,5 +1,5 @@
 # neoveille2020
-Rewriting of neoveille2016 (python, parameterized backend pipelines)
+Rewriting of neoveille2016 (python 3 , configuration file to update and extend input source files, linguistic pipelines and results output)
 
 
 This directory contains two main programs :
@@ -10,11 +10,14 @@ these programs constitute the backend of the Neoveille platform. The frontend we
 
 # Installation
 
-First ensure you have a working Mysql server installed and running, and Apache Solr running with a working collection (a remote Apache Solr server is also possible).
+First ensure you have an Apache Solr available and running with a working collection (a remote Apache Solr server is also possible).
 
 To make these program work, you need at least python 3.7.
 
-First clone the repository.
+First clone the repository:
+```
+git clone https://github.com/ecartierlipn/neoveille2020.git
+```
 
 Then, install Python modules :
 
@@ -59,7 +62,7 @@ db_dico=datatables
 db_neo=datatables
 
 [SOLR]
-# global variables for Apache Solr url (useful only if solr implied in processes)
+# global variables for Apache Solr url (useful only if solr is implied in processes)
 # host
 solr_host = https://tal.lipn.univ-paris13.fr/solr/
 # name of collection
@@ -77,18 +80,18 @@ input_solr_query=contents:végétalien && dateS:[NOW-1YEAR TO NOW]
 lang_detect=fr
 
 
-[JUSTEXT]
+[JUSTEXT] useless for corpus_analysis.py
 # stoplist for justext
 stoplist=French
 
-[SPACY]
+[SPACY] only if you include spacy in the linguistic pipeline
 # specific for spacy depending on ling_analysis method
 # warning : you have to launch server independently
 spacy_server=http://127.0.0.1:5000
 model=fr_core_news_sm
 token_tags=text, lemma, pos, is_oov
 
-[HUNSPELL]
+[HUNSPELL] only if you include hunspell in the linguistic pipeline
 # main dictionary + affix (required) : https://github.com/wooorm/dictionaries
 main_dict=/Users/emmanuelcartier/Desktop/GitHub/neoveille/neoveille-dev/resources/hunspell/hunspell-dicos/france/fr_FR
 # additional dictionary (optional)
@@ -96,15 +99,15 @@ add_dict=
 # word filter as re (ie to skip capitalized words) (optional)
 pre_filter=[\w-]{4,}
 
-# TBD : not used yet
-[TREETAGGER]
+
+[TREETAGGER] only if you include treetagger in the linguistic pipeline
 # specific for Treetager depending on ling_analysis method
 #  treetagger server
 # warning :you have to launch server independently
 treetagger_server=http://127.0.0.1:5055
 
 # neologisms patterns
-[NEOLOGISMS]
+[NEOLOGISMS] only if you include neologisms excluded dico and re patterns in the linguistic pipeline
 # specific constraints on neologisms detection 
 # regular expression patterns \w{3,}(?:-\w{3,}){0,3}
 pattern =[\w-]{3,}
@@ -142,9 +145,9 @@ The other sections correspond to sub-components.
 
 As can be noted in the configuration file, several components are web services and must be launched before launching the main program.
 Notably : 
-- ```./lib/treetagger_server.py ```: this web service needs Treetagger installed and the root directory informed
-- ``` ./lib/spacy_server.py``` :  this web service needs Spacy installed
-- ```./lib/excluded_dico_server.py``` : it enables to check if candidate neologisms pertain or not to a reference dictionary.
+- ```./lib/treetagger_server.py ```: this web service needs Treetagger installed and the root directory informed in the file. For full installation instructions, see : https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/.
+- ``` ./lib/spacy_server.py``` :  this web service needs Spacy installed. see full doc here : https://spacy.io/usage.
+- ```./lib/excluded_dico_server.py``` : it enables to check if candidate neologisms pertain or not to a reference dictionary. Necessary if you would like to use a reference dictionary saved in a mysql db.
 
 Once these settings are OK and web services launched, you can run the main program ```python corpus_analysis.py <configuration_file>```
 
@@ -154,3 +157,4 @@ python corpus_crawl_and_analysis.py config/settings.local.fr.treetagger.ini
 ```
 
 The program will load the configuration file and check if configuration components are available. then it will analyze (ling_pipeline parameter) the documents (data_source parameter) and save the results according to the analysis_output parameter.
+A log file is generated in the logs subdirectory. 
