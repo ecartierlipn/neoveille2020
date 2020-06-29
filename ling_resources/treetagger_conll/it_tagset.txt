@@ -1,0 +1,41 @@
+ABR	Abr	abbreviation
+ADJ	Adj	adjective
+ADV	Adv	adverb
+CON	Conj	conjunction
+DET:def	Det	definite article
+DET:indef	Det	indefinite article
+DET	Det	indefinite article
+FW	Noun	foreign word
+INT	Int	interjection
+LS	Sym	list symbol
+NOM	Noun	noun
+NPR	Np	name
+NUM	Num	numeral
+PRE	Prep	preposition
+PRE:det	Prep	preposition+article
+PRO	Pro	pronoun
+PON	Punct	punctuation
+PRO:demo	Pro	demonstrative pronoun
+PRO:indef	Pro	indefinite pronoun
+PRO:inter	Pro	interrogative pronoun
+PRO:pers	Pro	personal pronoun
+PRO:poss	Pro	possessive pronoun
+PRO:refl	Pro	reflexive pronoun
+PRO:rela	Pro	relative pronoun
+PRO	Pro	relative pronoun
+SENT	Sent	sentence marker
+SYM	Symb	symbol
+VER:cimp	Verb	verb conjunctive imperfect
+VER:cond	Verb	verb conditional
+VER:cpre	Verb	verb conjunctive present
+VER:futu	Verb	verb future tense
+VER:geru	Verb	verb gerund
+VER:impe	Verb	verb imperative
+VER:impf	Verb	verb imperfect
+VER:infi	Verb	verb infinitive
+VER:pper	Verb	verb participle perfect
+VER:ppre	Verb	verb participle present
+VER:pres	Verb	verb present
+VER:refl:infi	Verb	verb reflexive infinitive
+VER:remo	Verb	verb simple past
+VER	Verb	verb simple

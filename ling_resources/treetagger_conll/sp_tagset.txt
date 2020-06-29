@@ -1,0 +1,74 @@
+ACRNM	Np	acronym (ISO, CEI)
+ADJ	Adj	Adjectives (mayores, mayor)
+ADV	Adv	Adverbs (muy, demasiado, cómo)
+ALFP	Noun	Plural letter of the alphabet (As/Aes, bes)
+ALFS	Noun	Singular letter of the alphabet (A, b)
+ART	Det	Articles (un, las, la, unas)
+BACKSLASH	Punct	backslash	
+CARD	Num	Cardinals
+CC	ConjCoord	Coordinating conjunction (y, o)
+CCAD	ConjCoord	Adversative coordinating conjunction (pero)
+CCNEG	ConjCoord	Negative coordinating conjunction (ni)
+CM	Punct	comma (,)
+CODE	num	Alphanumeric code
+COLON	Punct	colon (:)
+CQUE	ConjSub	que (as conjunction)
+CSUBF	ConjSub	Subordinating conjunction that introduces finite clauses (apenas)
+CSUBI	ConjSub	Subordinating conjunction that introduces infinite clauses (al)
+CSUBX	ConjSub	Subordinating conjunction underspecified for subord-type (aunque)
+DASH	Punct	dash (-)
+DM	Det	Demonstrative pronouns (ésas, ése, esta)
+DOTS	Punct	POS tag for "..."
+FS	Punct	Full stop punctuation marks
+INT	InterrPro	Interrogative pronouns (quiénes, cuántas, cuánto)
+ITJN	Interj	Interjection (oh, ja)
+LP	Punct	left parenthesis ("(", "[")
+NC	Noun	Common nouns (mesas, mesa, libro, ordenador)
+NEG	Neg	Negation
+NMEA	Noun	measure noun (metros, litros)
+NMON	Noun	month name
+NP	Np	Proper nouns
+ORD	Num	Ordinals (primer, primeras, primera)
+PAL	Unk	Portmanteau word formed by a and el
+PDEL	Unk	Portmanteau word formed by de and el
+PE	Unk	Foreign word
+PERCT	Punct	percent sign (%)
+PNC	Unk	Unclassified word
+PPC	Pro	Clitic personal pronoun (le, les)
+PPO	Det	Possessive pronouns (mi, su, sus)
+PPX	Pro	Clitics and personal pronouns (nos, me, nosotras, te, sí)
+PREP	ConjSub	Negative preposition (sin)
+PREP	Prep	Preposition
+PREP/DEL	Prep	Complex preposition "después del"
+QT	Punct	quotation symbol (" ' `)
+QU	Det	Quantifiers (sendas, cada)
+REL	ProRel	Relative pronouns (cuyas, cuyo)
+RP	Punct	right parenthesis (")", "]")
+SE	ProRefl	Se (as particle)
+SEMICOLON	Punct	semicolon (;)
+SLASH	Punct	slash (/)
+SYM	Sym	Symbols
+UMMX	MeasureUnit	measure unit (MHz, km, mA)
+VCLIger	Verb	clitic gerund verb
+VCLIinf	Verb	clitic infinitive verb
+VCLIfin	Verb	clitic finite verb
+VEadj	Verb	Verb estar. Past participle
+VEfin	Verb	Verb estar. Finite
+VEger	Verb	Verb estar. Gerund
+VEinf	Verb	Verb estar. Infinitive
+VHadj	Verb	Verb haber. Past participle
+VHfin	Verb	Verb haber. Finite
+VHger	Verb	Verb haber. Gerund
+VHinf	Verb	Verb haber. Infinitive
+VLadj	Verb	Lexical verb. Past participle
+VLfin	Verb	Lexical verb. Finite
+VLger	Verb	Lexical verb. Gerund
+VLinf	Verb	Lexical verb. Infinitive
+VMadj	Verb	Modal verb. Past participle
+VMfin	Verb	Modal verb. Finite
+VMger	Verb	Modal verb. Gerund
+VMinf	Verb	Modal verb. Infinitive
+VSadj	Verb	Verb ser. Past participle
+VSfin	Verb	Verb ser. Finite
+VSger	Verb	Verb ser. Gerund
+VSinf	Verb	Verb ser. Infinitive

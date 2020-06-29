@@ -1,0 +1,65 @@
+import requests,logging
+
+log = logging.getLogger(__name__)
+
+def check_server(url):
+    '''Function to check spacy server available'''
+    try:
+        response = requests.get(url + '/check')
+        log.info(response.json())
+        if response.raise_for_status(): # bad response
+            log.error(response.raise_for_status())
+            return False
+        else:
+            return True
+    except Exception as e:
+        log.error("Error with Spacy server : " + str(e))
+        return False
+
+def check_model(url,lang):
+    '''Function to check spacy server model loaded'''
+    try:
+        response = requests.get(url + '/model')
+        log.info(response.json() + " : "+ lang)
+        if response.raise_for_status(): # bad response
+            log.error(response.raise_for_status())
+            return False
+        elif not(response.json() == lang):
+            log.error("Bad model loaded [" + str(response.json()) + ']. Please relaunch server with [' + lang + '] model.')
+            return False
+        else:
+            return True
+    except Exception as e:
+        log.error("Error with Spacy model : " + str(e))
+        return False
+
+
+def get_nlp(url,text):
+    try:
+        response = requests.post(url + "/parse/", data={"sentence":text})
+        log.info(response)
+        if response.raise_for_status(): # bad response
+            log.error(response.raise_for_status())
+            return False
+        else:
+            return response.json()
+    except Exception as e:
+        log.error("Error with Spacy analysis : " + str(e))
+        return False
+        
+
+    
+if __name__ == "__main__":
+    url = 'http://127.0.0.1:5000'
+    res = check_server(url)
+    if res is False:
+        print("Server not available. Please check spacy_server.py is running. Exiting.")
+        exit()
+    res = check_model(url,'fr')
+    if res is False:
+        exit()
+    res = get_nlp(url, "Les macronisations fjqsdjfjjffsqdqqd du candidat à la présidentielle fatiguent les antimacronistes.")
+    if res:
+        print(res)
+        for token in res[0]['tokens']:
+            print(token[0],token[1],token[2],token[3],token[4],token[8])
