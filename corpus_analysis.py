@@ -120,7 +120,7 @@ class corpus:
                         oov = oov2
                         log.info("List of neologism after exclusiondico: " + str(oov))
 
-                    # exclusion dico check
+                    # spell checker
                     if 'hunspell' in self.ling_config['type']:
                         oov2 = []
                         for neo in oov:
@@ -351,8 +351,19 @@ if __name__ == '__main__':
         ling_config['hunspell']={}
         ling_config['hunspell']['main_dict']=config['HUNSPELL']['main_dict']
         try:
+            if os.path.exists(ling_config['hunspell']['main_dict'] + '.dic') is False :
+                print("Hunspell path to dictionary is not functionning (" + ling_config['hunspell']['main_dict'] + "). Check your path to .dic and .aff files and re-run. Exiting.")
+                log.error("Hunspell path to dictionary is not functionning (" + ling_config['hunspell']['main_dict'] + "). Check your path to .dic and .aff files and re-run. Exiting.")
+                exit()
+            # to check if hunspell installed
+            cmd_exists = lambda x: any(os.access(os.path.join(path, x), os.X_OK) for path in os.environ["PATH"].split(os.pathsep))
+            if cmd_exists('hunspell') is False:
+                print("Hunspell is not installed on your machine. Install it (https://github.com/hunspell/hunspell) and retry. Exiting.")
+                log.error("Hunspell is not installed on your machine. Install it (https://github.com/hunspell/hunspell) and retry. Exiting.")
+                exit()
+                
             # with hunspell library : hunspell = Hunspell(lang_iso + '_'+ lang_iso.upper(), d)
-            hunspell_client.hunspell_check_word("a", ling_config['hunspell']['main_dict'])
+            #hunspell_client.hunspell_check_word("a", ling_config['hunspell']['main_dict'])
             print("Hunspell spell checker installed and working on this machine.")
             log.info("Hunspell spell checker installed and working on this machine.")
         except Exception as e:
