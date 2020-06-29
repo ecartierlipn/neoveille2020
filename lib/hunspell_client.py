@@ -109,7 +109,8 @@ def hunspell_check_text(s,lang="fr_FR",output="unknown"):
                         log.warning(str(err) + "\n")
                         return (False,False)
         except subprocess.CalledProcessError as e: # to be done : catch the actual error
-                log.warning(str(e) + "\n")
+                log.exception(str(e) + "\n")
+                print(str(e) + "\n")
                 return (False,False)
 
 
@@ -171,7 +172,8 @@ def hunspell_check_word(s,lang):
                         log.warning(str(err) + "\n")
                         return (False, 'err')
         except subprocess.CalledProcessError as e: # to be done : catch the actual error
-                log.warning(str(e) + "\n")
+                log.exception(str(e) + "\n")
+                print(str(e) + "\n")
                 return (False,'err')
 
 
