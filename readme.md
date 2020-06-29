@@ -133,7 +133,7 @@ ling_pipeline = treetagger+pattern+exclusiondico+hunspell
 
 - the output of analysis (either solr, db, file or a combination of them)
 ```
-output=solr+db+file
+analysis_output=solr+db+file
 ```
 
 
