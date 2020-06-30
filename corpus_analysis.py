@@ -343,6 +343,7 @@ if __name__ == '__main__':
     
     # ling_analysis 
     ling_config={}
+    ling_config['type']=ling_pipeline
     # lang detect
     # can be a list (ie : 'en, nl')
     ling_config['lang_detect']=[x.strip() for x in config['LANG_DETECT']['lang_detect'].split(',')] # list of acceptable guessing for the given language
@@ -406,7 +407,6 @@ if __name__ == '__main__':
             
     # SPACY
     if 'spacy' in ling_pipeline:
-        ling_config['type']=ling_pipeline
         ling_config['spacy_server']=config['SPACY']['spacy_server']
         ling_config['model']=config['SPACY']['model']
         ling_config['token_tags']=[x.strip() for x in config['SPACY']['token_tags'].split(',')]
@@ -428,7 +428,6 @@ if __name__ == '__main__':
                 print("Spacy server check OK.")
     # TREETAGGER
     if 'treetagger' in ling_pipeline:
-        ling_config['type']=ling_pipeline
         ling_config['treetagger_server']=config['TREETAGGER']['treetagger_server']
         # check treetagger server is running
         res = treetagger_client.check_server(ling_config['treetagger_server'])
