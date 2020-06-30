@@ -322,13 +322,14 @@ if __name__ == '__main__':
         
     
     # mysql parameters
-    mysqluser=config['MYSQL']['user']
-    mysqlpassword=config['MYSQL']['password']
-    mysqlhost=config['MYSQL']['host']
-    mysqldb_corpus=config['MYSQL']['db_corpus']
-    mysqldb_neo=config['MYSQL']['db_neo']
-    mysqldb_dico=config['MYSQL']['db_dico']
-    # to be done : check availability of mysql server
+    if 'MYSQL' in config:
+        mysqluser=config['MYSQL']['user']
+        mysqlpassword=config['MYSQL']['password']
+        mysqlhost=config['MYSQL']['host']
+        mysqldb_corpus=config['MYSQL']['db_corpus']
+        mysqldb_neo=config['MYSQL']['db_neo']
+        mysqldb_dico=config['MYSQL']['db_dico']
+        # to be done : check availability of mysql server
     
     # Apache Solr parameters
     solr_host = config['SOLR']['solr_host']
@@ -352,8 +353,8 @@ if __name__ == '__main__':
         ling_config['hunspell']['main_dict']=config['HUNSPELL']['main_dict']
         try:
             if os.path.exists(ling_config['hunspell']['main_dict'] + '.dic') is False :
-                print("Hunspell path to dictionary is not functionning (" + ling_config['hunspell']['main_dict'] + "). Check your path to .dic and .aff files and re-run. Exiting.")
-                log.error("Hunspell path to dictionary is not functionning (" + ling_config['hunspell']['main_dict'] + "). Check your path to .dic and .aff files and re-run. Exiting.")
+                print("Hunspell path to dictionary is not functionning (" + ling_config['hunspell']['main_dict'] + "). Check your path (default : ling_resources/hunspell-dicos/[france/fr_FR])  to .dic and .aff files and re-run. Exiting.")
+                log.error("Hunspell path to dictionary is not functionning (" + ling_config['hunspell']['main_dict'] + "). Check your path (default : ling_resources/hunspell-dicos/[france/fr_FR]) to .dic and .aff files and re-run. Exiting.")
                 exit()
             # to check if hunspell installed
             cmd_exists = lambda x: any(os.access(os.path.join(path, x), os.X_OK) for path in os.environ["PATH"].split(os.pathsep))
